@@ -10,9 +10,7 @@ public class Student {
     private int age;
     private int rollno;
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name;  }
 
     public void setName(String name) {
         this.name = name;

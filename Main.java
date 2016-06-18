@@ -58,6 +58,19 @@ public class Main {
                 break;
             case 3:
                 System.out.println("1,  Search Student\n2. Search Teacher");
+                choice = input.nextInt();
+                switch(choice){
+                    case 1:
+                        clg.searchStudent();
+                        break;
+                    case 2:
+
+
+                        break;
+                    default:
+                        System.out.println("Selected  invalid option.");
+                        break;
+                }
                 break;
             default:
                 System.out.println("Selected  invalid option.");

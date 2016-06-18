@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -41,4 +43,43 @@ public class College {
                 System.out.println(students[i].getName()+"\t\t\t\t"+students[i].getAge()+"\t\t\t\t"+students[i].getRollno());
             }
     }
+    public void searchStudent(){
+        System.out.println("Enter the name of the Student.");
+        String name = input.nextLine();
+
+        Boolean isFound = false;
+        for(int i = 0; i<students.length; i++){
+            if(students[i].getName().equalsIgnoreCase(name)){
+                isFound = true;
+                break;
+            }
+        }
+        if(isFound){
+            System.out.println(name+" found in the list" );
+        }
+        else{
+            System.out.println(name + " is not existed");
+        }
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
