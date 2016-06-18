@@ -10,13 +10,11 @@ import java.util.Scanner;
 public class Main {
     public  static  void main(String[] args){
         College clg=new College();
-        Student[] s = new Student[1];
 
-
-        mainmenu(clg, s);
+        mainmenu(clg);
     }
 
-    private static void mainmenu(College clg, Student[] s) {
+    private static void mainmenu(College clg) {
         System.out.println("\t\t\t\t\t MAIN MENU\n1.  Add\n2. View List\n3.   Search");
 
 
@@ -31,9 +29,8 @@ public class Main {
 
                     switch(choice){
                     case 1:
-                       s = clg.addStudent();
-                        System.out.println(s[0].getName());
-                        mainmenu(clg,s);
+                        clg.addStudent();
+                        mainmenu(clg);
                         break;
                     case 2:
 
@@ -48,8 +45,7 @@ public class Main {
                 choice = input.nextInt();
                 switch(choice){
                     case 1:
-
-                        System.out.println(s[0].getName());
+                        clg.viewStudent();
                         break;
                     case 2:
 

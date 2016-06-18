@@ -8,40 +8,37 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class College {
-    Student  student=new Student();
+    Student  student;
+    int size;
     Teacher teacher;
-    Student[]  students = new Student[1];
+    Student[]  students;;
     Scanner input = new Scanner(System.in);
 
 
-    public Student[] addStudent(){
+    public void addStudent(){
+        System.out.println("How many students you want to enroll?");
+        size = input.nextInt();
+        input.nextLine();
+        students = new Student[size];
 
         for(int i = 0; i< students.length; i++){
-
-
-
+            student = new Student();
             System.out.println("Enter Student's Name:   ");
-
             student.setName(input.nextLine());
             System.out.println("Enter Student's Age:   ");
             student.setAge(input.nextInt());
             System.out.println("Enter Student's Roll Number:   ");
             student.setRollno(input.nextInt());
             input.nextLine();
-            //System.out.println(student.getName()+student.getAge()+ student.getRollno());
 
             students[i] = student;
-            //System.out.println(students[i].getName()+"\t\t\t\t\t"+students[i].getAge()+"\t\t\t\t\t"+students[i].getRollno());
-        }
-          return  students;
-    }
-
-    public Student[] getStudents() {
-        return students;
+            }
     }
 
     public void viewStudent(){
-
-            System.out.println(students[0].getName());
+        System.out.println("Name\t\t\t\t"+"Age\t\t\t\t"+"Roll no,");
+            for(int i = 0; i<students.length ; i++){
+                System.out.println(students[i].getName()+"\t\t\t\t"+students[i].getAge()+"\t\t\t\t"+students[i].getRollno());
+            }
     }
 }
