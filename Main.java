@@ -33,7 +33,8 @@ public class Main {
                         mainmenu(clg);
                         break;
                     case 2:
-
+                        clg.addTeacher();
+                        mainmenu(clg);
                         break;
                     default:
                         System.out.println("Selected  invalid option.");
@@ -46,10 +47,11 @@ public class Main {
                 switch(choice){
                     case 1:
                         clg.viewStudent();
+                        mainmenu(clg);
                         break;
                     case 2:
-
-
+                        clg.viewTeacher();
+                        mainmenu(clg);
                         break;
                     default:
                         System.out.println("Selected  invalid option.");
@@ -62,10 +64,11 @@ public class Main {
                 switch(choice){
                     case 1:
                         clg.searchStudent();
+                        mainmenu(clg);
                         break;
                     case 2:
-
-
+                        clg.searchTeacher();
+                        mainmenu(clg);
                         break;
                     default:
                         System.out.println("Selected  invalid option.");
