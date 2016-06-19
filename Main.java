@@ -10,12 +10,16 @@ import java.util.Scanner;
 public class Main {
     public  static  void main(String[] args){
         College clg=new College();
+       Teacher[] teachers = new Teacher[clg.size];
+        Student[] students = new Student[clg.size];
 
-        mainmenu(clg);
+        mainmenu(clg,teachers,students);
     }
 
-    private static void mainmenu(College clg) {
+    private static void mainmenu(College clg, Teacher[] tt, Student[] ss) {
         System.out.println("\t\t\t\t\t MAIN MENU\n1.  Add\n2. View List\n3.   Search");
+        Teacher teacher = new Teacher();
+        Student student = new Student();
 
 
         Scanner input = new Scanner(System.in);
@@ -29,12 +33,12 @@ public class Main {
 
                     switch(choice){
                     case 1:
-                        clg.addStudent();
-                        mainmenu(clg);
+                        ss = clg.add(student);
+                        mainmenu(clg,tt,ss);
                         break;
                     case 2:
-                        clg.addTeacher();
-                        mainmenu(clg);
+                        tt = clg.add(teacher);
+                        mainmenu(clg,tt,ss);
                         break;
                     default:
                         System.out.println("Selected  invalid option.");
@@ -46,12 +50,12 @@ public class Main {
                 choice = input.nextInt();
                 switch(choice){
                     case 1:
-                        clg.viewStudent();
-                        mainmenu(clg);
+                        clg.view(ss);
+                        mainmenu(clg,tt,ss);
                         break;
                     case 2:
-                        clg.viewTeacher();
-                        mainmenu(clg);
+                        clg.view(tt);
+                        mainmenu(clg,tt,ss);
                         break;
                     default:
                         System.out.println("Selected  invalid option.");
@@ -63,12 +67,12 @@ public class Main {
                 choice = input.nextInt();
                 switch(choice){
                     case 1:
-                        clg.searchStudent();
-                        mainmenu(clg);
+                        clg.search(ss);
+                        mainmenu(clg,tt,ss);
                         break;
                     case 2:
-                        clg.searchTeacher();
-                        mainmenu(clg);
+                        clg.search(tt);
+                        mainmenu(clg,tt,ss);
                         break;
                     default:
                         System.out.println("Selected  invalid option.");

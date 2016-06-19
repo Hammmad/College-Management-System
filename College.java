@@ -10,22 +10,16 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class College {
-    Student  student;
+
     int size;
-    Teacher teacher;
-    Teacher[] teachers;
-    Student[]  students;;
     Scanner input = new Scanner(System.in);
 
 
-
-
-
-    public void addStudent(){
+    public Student[] add(Student student){
         System.out.println("How many students you want to enroll?");
         size = input.nextInt();
         input.nextLine();
-        students = new Student[size];
+        Student [] students = new Student[size];
 
 
         for(int i = 0; i< students.length; i++){
@@ -40,13 +34,14 @@ public class College {
 
             students[i] = student;
             }
+        return students;
     }
 
-    public void addTeacher(){
+    public Teacher[] add(Teacher teacher){
         System.out.println("How many Teachers you want to enroll?");
         size = input.nextInt();
         input.nextLine();
-        teachers = new Teacher[size];
+        Teacher[] teachers = new Teacher[size];
 
         for(int i = 0; i< teachers.length; i++){
             teacher = new Teacher();
@@ -61,58 +56,45 @@ public class College {
 
             teachers[i] = teacher;
         }
+        return teachers;
     }
 
-    public void viewStudent(){
+    public void view(Teacher[] teachers ){
         System.out.println("Name\t\t\t\t"+"Age\t\t\t\t"+"Roll no,");
+        for(int i = 0; i<teachers.length ; i++){
+            System.out.println(teachers[i].getName()+"\t\t\t\t"+teachers[i].getAge()+"\t\t\t\t"+teachers[i].getSubject());
+        }
+    }
+
+    public void view(Student[] students){
+        System.out.println("Name\t\t\t\t"+"Age\t\t\t\t"+"Subject");
         for(int i = 0; i<students.length ; i++){
             System.out.println(students[i].getName()+"\t\t\t\t"+students[i].getAge()+"\t\t\t\t"+students[i].getRollno());
         }
     }
 
-    public void viewTeacher(){
-        System.out.println("Name\t\t\t\t"+"Age\t\t\t\t"+"Subject");
-        for(int i = 0; i<teachers.length ; i++){
-            System.out.println(teachers[i].getName()+"\t\t\t\t"+teachers[i].getAge()+"\t\t\t\t"+teachers[i].getSubject());
-        }
-    }
-    public void searchStudent(){
-        System.out.println("Enter the name of the Student.");
+    public void search(Person[] persons){
+        System.out.println("Enter the name to be Search" );
         String name = input.nextLine();
 
         Boolean isFound = false;
-        for(int i = 0; i<students.length; i++){
-            if(students[i].getName().equalsIgnoreCase(name)){
+        int i;
+        for( i = 0; i<persons.length; i++){
+            if(persons[i].getName().equalsIgnoreCase(name)){
                 isFound = true;
                 break;
             }
         }
         if(isFound){
-            System.out.println(name+" found in the list" );
+            System.out.println(persons[i].getName()+" found in the list" );
         }
         else{
-            System.out.println(name + " is not existed");
+            i--;
+            System.out.println(persons[i].getName()+ " is not existed");
         }
     }
 
-    public void searchTeacher(){
-        System.out.println("Enter the name of the Teacher.");
-        String name = input.nextLine();
 
-        Boolean isFound = false;
-        for(int i = 0; i<teachers.length; i++){
-            if(teachers[i].getName().equalsIgnoreCase(name)){
-                isFound = true;
-                break;
-            }
-        }
-        if(isFound){
-            System.out.println(name+" found in the list" );
-        }
-        else{
-            System.out.println(name + " is not exists");
-        }
-    }
 
 
 }
